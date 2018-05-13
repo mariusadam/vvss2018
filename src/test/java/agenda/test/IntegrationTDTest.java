@@ -1,15 +1,21 @@
 package agenda.test;
 
+import agenda.controller.MainController;
+import agenda.exceptions.InvalidFormatException;
 import agenda.model.base.Activity;
 import agenda.model.base.Contact;
+import agenda.model.base.User;
 import agenda.model.repository.classes.RepositoryActivityMock;
 import agenda.model.repository.classes.RepositoryContactMock;
+import agenda.model.repository.classes.RepositoryUserMock;
 import agenda.model.repository.interfaces.RepositoryActivity;
 import agenda.model.repository.interfaces.RepositoryContact;
+import agenda.model.repository.interfaces.RepositoryUser;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,10 +24,10 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class IntegrationTestTD {
+public class IntegrationTDTest {
 
     private RepositoryActivity repAct;
-    private RepositoryContact  repCon;
+    private RepositoryContact repCon;
 
     @Before
     public void setup() throws Exception {
@@ -80,14 +86,13 @@ public class IntegrationTestTD {
         repAct.addActivity(Activity2);
         assertEquals(1, repAct.getActivities().size());
     }
-
     @Test
     public void testFunctionAPlusBPlusC() throws Exception {
         Calendar c = Calendar.getInstance();
         c.set(2013, 3 - 1, 20, 12, 00);
         Date start = c.getTime();
         c.set(2013, 3 - 1, 20, 12, 30);
-        Date    end     = c.getTime();
+        Date end = c.getTime();
         Contact Contact = new Contact("name1", "", "0711223344");
         repCon.addContact(Contact);
         Contact Contact1 = new Contact("Simona", "", "0711223344");

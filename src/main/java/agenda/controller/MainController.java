@@ -7,12 +7,13 @@ import agenda.model.repository.interfaces.RepositoryActivity;
 import agenda.model.repository.interfaces.RepositoryContact;
 import agenda.model.repository.interfaces.RepositoryUser;
 
+import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.List;
 
 public class MainController {
-    private RepositoryContact  contactRep;
-    private RepositoryUser     userRep;
+    private RepositoryContact contactRep;
+    private RepositoryUser userRep;
     private RepositoryActivity activityRep;
 
     public MainController(RepositoryContact contactRep, RepositoryUser userRep, RepositoryActivity activityRep) {
@@ -41,7 +42,7 @@ public class MainController {
         return contactRep.count();
     }
 
-    public List<Activity> getActivities() {
+    public List<Activity>  getActivities() {
         return activityRep.getActivities();
     }
 

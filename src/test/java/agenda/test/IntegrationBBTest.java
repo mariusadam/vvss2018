@@ -17,15 +17,19 @@ import org.junit.Test;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class IntegrationTestBB {
+public class IntegrationBBTest {
 
     private RepositoryActivity repAct;
-    private RepositoryContact  repCon;
-    private RepositoryUser     repUser;
-    private MainController     mainController;
+    private RepositoryContact repCon;
+    private RepositoryUser repUser;
+    private MainController mainController;
 
     @Before
     public void setup() {
@@ -53,8 +57,8 @@ public class IntegrationTestBB {
 
     @Test
     public void testRepActivity() {
-        Activity   act = null;
-        DateFormat df  = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        Activity act = null;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
         try {
             act = new Activity("name1", df.parse("03/20/2013 12:00"),
                     df.parse("03/20/2013 13:00"), null, "Lunch break");
@@ -76,7 +80,7 @@ public class IntegrationTestBB {
         int n = mainController.count();
 
         try {
-            Contact c = new Contact("name", "address1", "+071122334455");
+            Contact c = new Contact("name", "address1", "0745874569");
             mainController.addContact(c);
         } catch (InvalidFormatException e) {
             e.printStackTrace();
@@ -84,8 +88,8 @@ public class IntegrationTestBB {
 
         assertEquals(n + 1, mainController.count());
 
-        Activity   act = null;
-        DateFormat df  = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        Activity act = null;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
         try {
             act = new Activity("name1", df.parse("03/20/2013 12:00"),
                     df.parse("03/20/2013 13:00"), null, "Lunch break");

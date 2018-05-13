@@ -1,23 +1,20 @@
 package agenda.model.repository.interfaces;
 
-import agenda.model.base.User;
-
 import java.util.List;
+
+import agenda.model.base.User;
 
 public interface RepositoryUser {
 
-    User getByUsername(String username);
+	User getByUsername(String username);
+	User getByName(String name);
+	void  add(User user);
 
-    User getByName(String name);
-
-    void add(User user);
-
-    boolean changePasswd(User user, String oldPasswd, String newPasswd);
-
-    boolean save();
-
-    List<User> getUsers();
-
-    int getCount();
-
+	boolean changePasswd(User user, String oldPasswd, String newPasswd);
+	
+	boolean save();
+	
+	List<User> getUsers();
+	int getCount();
+	
 }

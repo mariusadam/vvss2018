@@ -51,10 +51,10 @@ public class TestCerinta3 {
             rep.removeActivity(activity);
 
         Calendar c = Calendar.getInstance();
-        c.set(0, -3, 22, 12, 123);
+        c.set(0, -3 , 22, 12, 123);
         Date start = c.getTime();
 
-        c.set(2012, 3, 25, 12, 30);
+        c.set(2012, 3 , 25, 12, 30);
         Date end = c.getTime();
 
         Activity activity = new Activity("name1", start, end,
